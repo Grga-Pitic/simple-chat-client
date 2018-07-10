@@ -14,6 +14,10 @@ namespace irc_client.connection.requests.hadnlers {
 
 		private OperationStatus _globalStatus;
 
+		/// <summary>
+		/// Creates a handler witch handles a StatusRequest object. 
+		/// </summary>
+		/// <param name="data">OperationStatus object.</param>
 		public StatusRequestHandler(OperationStatus globalStatus) {
 			this._globalStatus = globalStatus;
 		}

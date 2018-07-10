@@ -31,7 +31,7 @@ namespace irc_client.forms {
 
 		#region properties
 		/// <summary>
-		/// Returns a form-singleton got by a FormType. Create form if it is't created.
+		/// Returns a form-singleton got by a FormType. Creates form if it is't created.
 		/// </summary>
 		/// <param name="type">Type of a form</param>
 		/// <returns>Form-singleton</returns>

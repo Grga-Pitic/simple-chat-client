@@ -20,7 +20,6 @@ namespace irc_client {
 		}
 
 		private void buttonEnter_Click(object sender, EventArgs e) {
-
 			
 			if (loginBox.Text.Length == 0) {
 				MessageBox.Show("Login field is empty");
@@ -46,9 +45,6 @@ namespace irc_client {
 
 			data       = new SessionData(address.IP, address.Port, loginBox.Text, passwordBox.Text);
 			connection = new ServerConnection();
-
-//			data.Login = "mainadmin";
-//			data.Password = "1234";
 
 			Session.Instance.Data = data;
 			if (!connection.Open(data.Address, data.Port)) {

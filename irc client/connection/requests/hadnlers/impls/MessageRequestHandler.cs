@@ -12,6 +12,10 @@ namespace irc_client.connection.requests.hadnlers {
 
 		private SessionData _data;
 
+		/// <summary>
+		/// Creates a handler witch handles a MessageRequest object. 
+		/// </summary>
+		/// <param name="data">Data about a user session.</param>
 		public MessageRequestHandler(SessionData data) {
 
 			this._data = data;
@@ -28,7 +32,7 @@ namespace irc_client.connection.requests.hadnlers {
 			dialog.MessageList.AddMessage(newMessage);
 			dialog.IsHaveANewMassege = true;
 
-			updateContactList();
+			this._data.ContactList.Updated = true;
 			updateDialogForm(contact);
 
 		}
@@ -49,20 +53,6 @@ namespace irc_client.connection.requests.hadnlers {
 
 				}));
 			}
-		}
-
-		/// <summary>
-		/// Updates contact list on the contacts form.
-		/// </summary>
-		private void updateContactList() {
-
-			Contacts contactForm = (Contacts)FormManager.Instance.GetForm(FormType.Contacts);
-			contactForm.Invoke(new Action(() => {
-
-				contactForm.UpdateContactList();
-
-			}));
-
 		}
 
 	}

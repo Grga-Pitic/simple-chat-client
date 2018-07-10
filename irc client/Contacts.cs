@@ -14,6 +14,7 @@ namespace irc_client {
 	public partial class Contacts : Form {
 
 		private const string NOTHIFICATION_SYMBOL = "*";
+
 		private ContextMenu _menu;
 		public Contacts() {
 			InitializeComponent();
@@ -28,6 +29,8 @@ namespace irc_client {
 			_menu.MenuItems[3].Click += new System.EventHandler(contextMenuCopyNickClick);
 			contactsList.ContextMenu = _menu;
 		}
+
+		#region Context menu
 
 		private void contextMenuDeleteClick(object sender, EventArgs e) {
 			deleteContactByIndex(contactsList.SelectedIndex);
@@ -44,6 +47,8 @@ namespace irc_client {
 		private void contextMenuCopyNickClick(object sender, EventArgs e) {
 
 		}
+
+		#endregion
 
 		private void deleteContactByIndex(int index) {
 			SessionData data = Session.Instance.Data;
@@ -95,19 +100,16 @@ namespace irc_client {
 
 		}
 
-		public ListBox GetList() {
-			return this.contactsList;
-		}
-
 		private void openDialog(int contactIndex) {
 
-
 			SessionData data = Session.Instance.Data;
+
 			// checking for out of range
 			if (contactIndex >= data.ContactList.Size) {
 				return;
 			}
 
+			// checking for out of range
 			if (contactIndex < 0) {
 				return;
 			}

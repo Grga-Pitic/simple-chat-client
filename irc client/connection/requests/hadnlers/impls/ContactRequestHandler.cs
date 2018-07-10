@@ -12,6 +12,10 @@ namespace irc_client.connection.requests.hadnlers {
 
 		private SessionData _data;
 
+		/// <summary>
+		/// Creates a handler witch handles a ContactRequest object. 
+		/// </summary>
+		/// <param name="data">SessionData object.</param>
 		public ContactRequestHandler(SessionData data) {
 			this._data = data;
 		}
