@@ -9,7 +9,7 @@ namespace irc_client.session {
 
 		private static Session instance;
 
-		public SessionData Data { get; set; }
+		public ConnectionData Data { get; set; }
 
 		public static Session Instance {
 			get {

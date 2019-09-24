@@ -8,7 +8,7 @@ namespace irc_client.services.parcers {
 	public class ParcedAddress {
 
 		public string IP { get; set; }
-		public int Port { get; set; }
+		public int	  Port { get; set; }
 
 		public override string ToString() {
 			return IP + ":" + Port.ToString();

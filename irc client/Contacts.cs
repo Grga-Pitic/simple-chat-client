@@ -51,7 +51,7 @@ namespace irc_client {
 		#endregion
 
 		private void deleteContactByIndex(int index) {
-			SessionData data = Session.Instance.Data;
+			ConnectionData data = Session.Instance.Data;
 			// checking for out of range
 			if (index >= data.ContactList.Size) {
 				return;
@@ -66,7 +66,7 @@ namespace irc_client {
 
 		public void UpdateContactByIndex(int index) {
 
-			SessionData data = Session.Instance.Data;
+			ConnectionData data = Session.Instance.Data;
 			Contact outputtedContact = data.ContactList.GetByIndex(index); // A contact which will be outputted
 			String outputtedLine = outputtedContact.Login;
 			bool isNewMessage = data.DialogDictionary.GetDialogByContact(outputtedContact).IsHaveANewMassege;
@@ -83,7 +83,7 @@ namespace irc_client {
 			contactsList.Items.Clear(); // TODO I'll fix it later.
 										// there's no more constant thing than temporary
 
-			SessionData data = Session.Instance.Data;
+			ConnectionData data = Session.Instance.Data;
 
 			for (int i = 0; i < data.ContactList.Size; i++) {
 				Contact outputtedContact = data.ContactList.GetByIndex(i); // A contact which will be outputted
@@ -96,13 +96,14 @@ namespace irc_client {
 				}
 
 				contactsList.Items.Add(outputtedLine);
+				data.ContactList.Updated = false;
 			}
 
 		}
 
 		private void openDialog(int contactIndex) {
 
-			SessionData data = Session.Instance.Data;
+			ConnectionData data = Session.Instance.Data;
 
 			// checking for out of range
 			if (contactIndex >= data.ContactList.Size) {

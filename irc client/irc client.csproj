@@ -68,12 +68,12 @@
     </Compile>
     <Compile Include="connection\requests\AbstractRequest.cs" />
     <Compile Include="connection\requests\factories\RequestFactory.cs" />
-    <Compile Include="connection\requests\hadnlers\factories\RequestHandlerFactory.cs" />
-    <Compile Include="connection\requests\hadnlers\impls\ContactRequestHandler.cs" />
-    <Compile Include="connection\requests\hadnlers\impls\EmptyRequestHandler.cs" />
-    <Compile Include="connection\requests\hadnlers\impls\MessageRequestHandler.cs" />
-    <Compile Include="connection\requests\hadnlers\impls\StatusRequestHandler.cs" />
-    <Compile Include="connection\requests\hadnlers\interfaces\IRequestHandler.cs" />
+    <Compile Include="connection\requests\handlers\factories\RequestHandlerFactory.cs" />
+    <Compile Include="connection\requests\handlers\impls\ContactRequestHandler.cs" />
+    <Compile Include="connection\requests\handlers\impls\EmptyRequestHandler.cs" />
+    <Compile Include="connection\requests\handlers\impls\MessageRequestHandler.cs" />
+    <Compile Include="connection\requests\handlers\impls\StatusRequestHandler.cs" />
+    <Compile Include="connection\requests\handlers\interfaces\IRequestHandler.cs" />
     <Compile Include="connection\requests\impls\AddRequest.cs" />
     <Compile Include="connection\requests\impls\AuthRequest.cs" />
     <Compile Include="connection\requests\impls\ContactListRequest.cs" />

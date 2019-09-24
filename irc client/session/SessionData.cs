@@ -9,7 +9,7 @@ namespace irc_client.session {
 	/// <summary>
 	/// Class-container. Contains a session data.
 	/// </summary>
-	public class SessionData {
+	public class ConnectionData {
 
 		private ContactList _contactList;
 
@@ -67,7 +67,7 @@ namespace irc_client.session {
 		/// <summary>
 		/// Creates new default session.
 		/// </summary>
-		public SessionData() {
+		public ConnectionData() {
 
 			// Default connection parameters.
 			this.Address = ServerConnection.STANDART_ADDRESS;
@@ -90,7 +90,7 @@ namespace irc_client.session {
 		/// <param name="address">Address of server</param>
 		/// <param name="login">User login</param>
 		/// <param name="password">User password</param>
-		public SessionData(string address, int port, string login, string password) {
+		public ConnectionData(string address, int port, string login, string password) {
 
 			Address      = address;
 			Port         = port;

@@ -15,6 +15,8 @@ namespace irc_client.connection {
 		private const string REGISTRATION_FAILED = "Invalid registration data";
 		private const string REGISTRATION_SUCCESS = "You're registered!";
 		private const string INVALID_MESSAGE = "Invalid message";
+		private const string ADD_SUCCESS = "The user was added";
+		private const string ADD_FAILED = "The user not found";
 
 		private static RequestFactory instance;
 
@@ -41,6 +43,12 @@ namespace irc_client.connection {
 				case REGISTRATION_FAILED:
 					request = new StatusRequest(requestString, RequestType.RegistationFailed);
 					break;
+				case ADD_SUCCESS:
+					request = new StatusRequest(requestString, RequestType.AddSuccess);
+					break;
+				case ADD_FAILED:
+					request = new StatusRequest(requestString, RequestType.AddFailed);
+					break;
 				case INVALID_MESSAGE:
 					request = new StatusRequest(requestString, RequestType.InvalidMessage);
 					break;
@@ -57,7 +65,6 @@ namespace irc_client.connection {
 
 			string requetsType = requestString.Substring(0, splitterIndex);
 			string requestBody = requestString.Substring(splitterIndex + 1);
-
 			string[] requestParams = splitRequestBody(requestBody);
 
 			switch (requetsType) {

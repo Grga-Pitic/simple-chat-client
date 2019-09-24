@@ -17,6 +17,8 @@ namespace irc_client.connection.requests {
 		AuthFailed,
 		RegistationSuccess,
 		RegistationFailed,
-		InvalidMessage
+		InvalidMessage,
+		AddSuccess,
+		AddFailed
 	}
 }

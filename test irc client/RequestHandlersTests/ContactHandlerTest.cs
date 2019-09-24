@@ -9,7 +9,7 @@ namespace test_irc_client.RequestHandlersTests {
 	public class ContactHandlerTest {
 		[TestMethod]
 		public void Handle_createsWith1and2_updateContactListIsTrue() {
-			SessionData data = new SessionData();
+			ConnectionData data = new ConnectionData();
 
 			IRequestHandler handler = new ContactRequestHandler(data);
 			IRequest request = new ContactRequest("1", "2");
@@ -24,7 +24,7 @@ namespace test_irc_client.RequestHandlersTests {
 
 		[TestMethod]
 		public void Handle_createsWith1and2_contactListSizeIs1() {
-			SessionData data = new SessionData();
+			ConnectionData data = new ConnectionData();
 
 			IRequestHandler handler = new ContactRequestHandler(data);
 			IRequest request = new ContactRequest("1", "2");
@@ -39,7 +39,7 @@ namespace test_irc_client.RequestHandlersTests {
 
 		[TestMethod]
 		public void Handle_createsWith1and2_1stContactLoginIs2() {
-			SessionData data = new SessionData();
+			ConnectionData data = new ConnectionData();
 
 			IRequestHandler handler = new ContactRequestHandler(data);
 			IRequest request = new ContactRequest("1", "2");
@@ -53,7 +53,7 @@ namespace test_irc_client.RequestHandlersTests {
 
 		[TestMethod]
 		public void Handle_createsWith1and2_1stContactNickIs1() {
-			SessionData data = new SessionData();
+			ConnectionData data = new ConnectionData();
 
 			IRequestHandler handler = new ContactRequestHandler(data);
 			IRequest request = new ContactRequest("1", "2");

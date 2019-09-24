@@ -100,21 +100,21 @@ namespace irc_client {
 			// toolAddContact
 			// 
 			this.toolAddContact.Name = "toolAddContact";
-			this.toolAddContact.Size = new System.Drawing.Size(139, 22);
+			this.toolAddContact.Size = new System.Drawing.Size(152, 22);
 			this.toolAddContact.Text = "Add contact";
 			this.toolAddContact.Click += new System.EventHandler(this.toolAddContact_Click);
 			// 
 			// toolLogout
 			// 
 			this.toolLogout.Name = "toolLogout";
-			this.toolLogout.Size = new System.Drawing.Size(139, 22);
+			this.toolLogout.Size = new System.Drawing.Size(152, 22);
 			this.toolLogout.Text = "Logout";
 			this.toolLogout.Click += new System.EventHandler(this.toolLogout_Click);
 			// 
 			// toolExit
 			// 
 			this.toolExit.Name = "toolExit";
-			this.toolExit.Size = new System.Drawing.Size(139, 22);
+			this.toolExit.Size = new System.Drawing.Size(152, 22);
 			this.toolExit.Text = "Exit";
 			this.toolExit.Click += new System.EventHandler(this.toolExit_Click);
 			// 

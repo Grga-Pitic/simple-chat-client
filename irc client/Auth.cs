@@ -12,7 +12,7 @@ using irc_client.forms;
 namespace irc_client {
 	public partial class Auth : Form {
 
-		private SessionData data;
+		private ConnectionData conData;
 		private ServerConnection  connection;
 
 		public Auth() {
@@ -43,12 +43,12 @@ namespace irc_client {
 				return;
 			}
 
-			data       = new SessionData(address.IP, address.Port, loginBox.Text, passwordBox.Text);
+			conData       = new ConnectionData(address.IP, address.Port, loginBox.Text, passwordBox.Text);
 			connection = new ServerConnection();
 
-			Session.Instance.Data = data;
-			if (!connection.Open(data.Address, data.Port)) {
-				MessageBox.Show("Connection failed. Host " + data.Address + ":" + data.Port.ToString() + " not found.");
+			Session.Instance.Data = conData;
+			if (!connection.Open(conData.Address, conData.Port)) {
+				MessageBox.Show("Connection failed. Host " + conData.Address + ":" + conData.Port.ToString() + " not found.");
 				return;
 			}
 			connection.StartListen();
@@ -56,7 +56,7 @@ namespace irc_client {
 			ConnectionService.Instance.StartHandling(connection);
 
 			RequestQueue outputQueue = RequestRepository.Instance.OutputRequests;
-			outputQueue.Enqueue(new AuthRequest(data.Login, data.Password));
+			outputQueue.Enqueue(new AuthRequest(conData.Login, conData.Password));
 			while (!OperationStatus.Instance.AuthFeedback) {
 				// do nothing
 				Thread.Sleep(100);
@@ -64,6 +64,7 @@ namespace irc_client {
 
 			if (!OperationStatus.Instance.AuthSuccess) {
 				MessageBox.Show("Incorrect login/password");
+				ConnectionService.Instance.Close(connection);
 				return;
 			} else {
 				FormManager.Instance.GetForm(FormType.Contacts).Show();
@@ -71,7 +72,7 @@ namespace irc_client {
 
 			outputQueue.Enqueue(new ContactListRequest());
 
-			outputQueue.Enqueue(new MessageRequest("test", "mainadmin"));// debugging
+			outputQueue.Enqueue(new MessageRequest("test", "mainadmin")); // debugging
 
 			this.Hide(); 
 			

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 using irc_client.session;
-using irc_client.connection.requests;
 
 namespace irc_client.connection.requests.hadnlers {
 	public class StatusRequestHandler : IRequestHandler {
@@ -42,6 +35,12 @@ namespace irc_client.connection.requests.hadnlers {
 					break;
 				case RequestType.InvalidMessage:
 					MessageBox.Show("Message wasn't sent");
+					break;
+				case RequestType.AddSuccess:
+					MessageBox.Show(request.RequestString);
+					break;
+				case RequestType.AddFailed:
+					MessageBox.Show(request.RequestString);
 					break;
 
 			}

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Threading;
 
 using irc_client.forms;
@@ -34,37 +33,12 @@ namespace irc_client.connection.handlers {
 					continue;
 				}
 
-				IRequest request = base.Queue.Dequeue();
-				IRequestHandler requestHandler = RequestHandlerFactory.Instance.CreateByType(request.Type);
+				IRequest request = base.Queue.Dequeue(); // Dequeue request from queue
+				IRequestHandler requestHandler = RequestHandlerFactory.Instance.CreateByType(request.Type); // Get necessery handler.
 
 				requestHandler.Handle(request);
 
-				SessionData data = Session.Instance.Data;
-				if (data.ContactList.Updated) {
-
-					updateContactList();
-					data.ContactList.Updated = false;
-
-				}
 			}
-		}
-
-		#endregion
-
-		#region operations
-		
-		/// <summary>
-		/// Updates contact list on the contacts form.
-		/// </summary>
-		private void updateContactList() {
-
-			Contacts contactForm = (Contacts)FormManager.Instance.GetForm(FormType.Contacts);
-			contactForm.Invoke(new Action(() => {
-
-				contactForm.UpdateContactList();
-				
-			}));
-
 		}
 
 		#endregion

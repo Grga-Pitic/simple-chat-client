@@ -15,7 +15,7 @@ namespace irc_client.connection.requests.hadnlers {
 
 			// if a type is the AuthSuccess, the AuthFailed, the RegistationSuccess and 
 			// the RegistrationFailed
-			if ((int)type >= (int)RequestType.AuthSuccess) {
+			if ((int)type >= (int)RequestType.AuthSuccess) { // TODO возможна ошибка при изменении RequestType
 				return new StatusRequestHandler(OperationStatus.Instance);
 			}
 

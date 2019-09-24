@@ -25,10 +25,12 @@ namespace irc_client.session {
 		}
 
 		public void AddContact(Contact newContact) {
+			this.Updated = true;
 			this._contactList.Add(newContact);
 		}
 
 		public void DeleteContactByIndex(int index) {
+			this.Updated = true;
 			this._contactList.RemoveAt(index);
 		}
 
@@ -38,6 +40,7 @@ namespace irc_client.session {
 		}
 
 		public void DeleteAll() {
+			this.Updated = true;
 			this._contactList.Clear();
 		}
 
